@@ -6,6 +6,18 @@
 <div class="text-center">
     <h1 class="display-4">Welcome GitHub!!</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table id="employeesTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年資</th>
+                <th>薪水</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
 </div>
 
 @section Scripts{ 
@@ -62,15 +74,34 @@
         //    console.log(datas)
 
         //})
-        emp.employees.forEach(theEmp => {
+        //let datas = ""
+        //emp.employees.forEach(theEmp => {
+        //    const { name, workYears, salary } = theEmp;
+        //    const data = `
+        //       <tr>
+        //         <td>${name}</td>
+        //                 <td>${workYears}</td>
+        //                 <td>${salary}</td>
+        //       </tr>
+        //       `;
+
+        //  datas += data;
+
+        //})
+        //document.querySelector('#employeesTable>tbody').innerHTML = datas;
+
+       const datas =  emp.employees.map(theEmp =>{
             const { name, workYears, salary } = theEmp;
-                console.log(name)
-                console.log(workYears)
-                console.log(salary)
-
-        })
-
-
+            return(
+                `<tr>
+                  <td>${name}</td>
+                  <td>${workYears}</td>
+                  <td>${salary}</td>
+                  </tr>
+                `
+            )
+       })
+        document.querySelector('#employeesTable>tbody').innerHTML = datas.join("");
        
      
     </script>
