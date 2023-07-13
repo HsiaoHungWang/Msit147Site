@@ -8,10 +8,44 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-@section Scripts{
-    <script src=""></script>
+@section Scripts{ 
      <script>
-        $('h1').text("Hello Section!!")
+        //JSON 
+        // [index:value, index:value, index:value] {"key":value, "key":value}
+        // [{"key":value, "key":value}, {"key":value, "key":value}]
+        // {"key":[value, value, value]}
+
+        //const datas = ["a","b","c"];
+        //console.log(datas[1]);  //b
+        //const data = {"name":"Jack","age":30};
+        //console.log(data.name)
+
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
+
+        //emps => array
+       // console.log(emps[2]); //{ "name": "Mary", "workYears": 7, "salary": 45000 }
+        //emps[2] => object
+       // console.log(emps[2].salary);
+
+       //for(let i=0,max=emps.length;i<max;i++){
+       //     console.log(emps[i].name)
+       //     console.log(emps[i].workYears)
+       //     console.log(emps[i].salary)
+       //}
+
+        const emp = {
+            "employees": [
+                { "name": "Tom", "workYears": 3, "salary": 35000 },
+                { "name": "Jack", "workYears": 5, "salary": 40000 },
+                { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ]
+        };
+
+
+
+     
     </script>
 }
 
