@@ -11,7 +11,7 @@
 @section Scripts{ 
      <script>
         //JSON 
-        // [index:value, index:value, index:value] {"key":value, "key":value}
+        // [value, value, value] {"key":value, "key":value}
         // [{"key":value, "key":value}, {"key":value, "key":value}]
         // {"key":[value, value, value]}
 
@@ -24,8 +24,10 @@
         { "name": "Jack", "workYears": 5, "salary": 40000 },
         { "name": "Mary", "workYears": 7, "salary": 45000 }];
 
+        //console.log(emps.length)
+
         //emps => array
-       // console.log(emps[2]); //{ "name": "Mary", "workYears": 7, "salary": 45000 }
+      // console.log(emps[2]); //{ "name": "Mary", "workYears": 7, "salary": 45000 }
         //emps[2] => object
        // console.log(emps[2].salary);
 
@@ -42,9 +44,34 @@
                 { "name": "Mary", "workYears": 7, "salary": 45000 }
             ]
         };
+        //console.log(emp.employees.length)
+        //console.log(emp.employees[1])
+        //console.log(emp.employees[1].name)
+        //for(let i=0,max=emp.employees.length;i<max;i++){
+        //    //解構賦值 Destructuring Assignment
+        //    const {name, workYears, salary } = emp.employees[i];
+
+        //    console.log(name)
+        //    console.log(workYears)
+        //    console.log(salary)
+        //}
+
+        //emp.employees.forEach((theEmp,idx, datas)=>{
+        //    console.log(idx)
+        //    console.log(theEmp)
+        //    console.log(datas)
+
+        //})
+        emp.employees.forEach(theEmp => {
+            const { name, workYears, salary } = theEmp;
+                console.log(name)
+                console.log(workYears)
+                console.log(salary)
+
+        })
 
 
-
+       
      
     </script>
 }
