@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "First";
+}
+
+<h1>First</h1>
+<button id="button1" class="btn btn-primary">Click</button>
+<div id="div1"></div>
+
+@section Scripts{
+    <script>
+        //step1 先找到要控制的對象
+        const btn = document.querySelector('#button1');
+        //step2 在甚麼的行為下
+        btn.addEventListener('click',()=>{
+            //step3 要做甚麼事
+            const theDiv = document.querySelector('#div1');
+            theDiv.innerHTML = '<h2>Hello JavaScript!!</h2>';
+        })
+       
+    </script>
+}
+
+@section Styles{
+
+}
