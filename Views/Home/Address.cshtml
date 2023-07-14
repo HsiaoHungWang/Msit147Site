@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Address";
+}
+
+<h1>Address</h1>
+<select id="selectCity">
+    <option value="嘉義市">嘉義市</option>
+</select>
+
+@section Scripts{
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/cities');
+        xhr.send();
+
+        xhr.addEventListener('load',()=>{
+            const datas = JSON.parse(xhr.responseText);
+           var cities =  datas.map(city=>{
+                return (`<option value="${city}">${city}</option>`)
+            })
+            document.querySelector('#selectCity').innerHTML = cities.join("");
+        })
+    </script>
+}
+
+@section Styles{
+
+}
+
