@@ -29,6 +29,10 @@ namespace Msit147Site.Controllers
 
         }
 
+        public IActionResult Register() {
+            return View();
+        }
+
         public IActionResult Address() {
             return View();
         }

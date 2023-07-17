@@ -32,6 +32,11 @@ namespace Msit147Site.Controllers
             return Content($"Hello {userName}!!");
         }
 
+        [HttpPost]
+        public IActionResult Register(Members member) {
+            return Content($"Hello {member.Name}");
+        }
+
         public IActionResult Cities() {
             var cities = _context.Address.Select(c => c.City).Distinct();
             return Json(cities);
