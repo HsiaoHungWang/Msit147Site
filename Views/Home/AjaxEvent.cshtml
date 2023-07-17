@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "AjaxEvent";
+}
+
+<h1>AjaxEvent</h1>
+<button id="ajaxStart" class="btn btn-primary">Ajax Start</button>
+<button id="ajaxStop" class="btn btn-warning">Ajax Stop</button>
+
+<div id="div1" class="alert alert-secondary mt-3"></div>
+
+@section Scripts{
+    <script>
+        const btnStart = document.querySelector('#ajaxStart');
+        const btnStop = document.querySelector('#ajaxStop');
+        const divAlert  = document.querySelector('#div1');
+        btnStart.addEventListener('click',()=>{
+            divAlert.innerHTML = "Ajax Start!!";
+        })
+        btnStop.addEventListener('click',()=>{
+            divAlert.innerHTML = "Ajax Stop!!";
+        })
+    </script>
+
+}
+
+@section Styles{
+
+}

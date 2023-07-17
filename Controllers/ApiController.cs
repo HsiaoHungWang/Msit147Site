@@ -21,6 +21,15 @@ namespace Msit147Site.Controllers
                 
         }
 
+        public IActionResult AjaxEvent(string userName)
+        {
+            if(string.IsNullOrEmpty(userName))
+            {
+                userName = "Guest";
+            }
+            return Content("Hello " + userName);
+        }
+
         public IActionResult Cities() {
             var cities = _context.Address.Select(c => c.City).Distinct();
             return Json(cities);
