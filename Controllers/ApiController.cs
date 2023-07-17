@@ -27,7 +27,7 @@ namespace Msit147Site.Controllers
             {
                 userName = "Guest";
             }
-            return Content("Hello " + userName);
+            return Content($"Hello {userName}!!");
         }
 
         public IActionResult Cities() {
