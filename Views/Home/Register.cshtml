@@ -5,7 +5,9 @@
 
 <h1>Regiser</h1>
 <div class="row">
-    <div class="col-3"></div>
+    <div class="col-3">
+        <a href="~/home/index" id="linkPage">Index Page</a>
+    </div>
     <div class="col-6">
         <form method="Post" action="~/api/register">
             <div class="mb-3">
@@ -25,15 +27,42 @@
                 <label for="formFile" class="form-label">選擇檔案</label>
                 <input class="form-control" type="file" id="formFile" name="FileName">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary" id="buttonSubmit">Submit</button>
         </form>
-
+        <div id="div1" class="alert alert-secondary mt-3"></div>
     </div>
     <div class="col-3"></div>
 </div>
 
 @section Scripts{
-    <script></script>
+    <script>
+        const btnSubmit = document.querySelector('#buttonSubmit');
+        const page = document.querySelector('#linkPage');
+        const divAlert = document.querySelector('#div1');
+        btnSubmit.addEventListener('click', event=>{           
+            event.preventDefault(); 
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/register');
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.send('Name=Mary&Age=30&Email=Mary@company.com');
+
+            xhr.addEventListener('load',()=>{
+                const data = xhr.responseText;
+                divAlert.innerHTML = data;
+            })
+                            
+        })
+
+        page.addEventListener('click',event=>{
+            if (!window.confirm("真的要去??")) {
+                event.preventDefault();
+                console.log('page');
+            }
+        })
+
+
+    </script>
 }
 
 @section Styles{
