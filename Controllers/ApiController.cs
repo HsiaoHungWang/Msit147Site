@@ -37,7 +37,10 @@ namespace Msit147Site.Controllers
         public IActionResult Register(Members member, IFormFile Photo) {
             // string photoInfo = $"{Photo.FileName} - {Photo.Length} - {Photo.ContentType}";
             string rootPath = Path.Combine(_host.WebRootPath, "uploads", Photo.FileName); //C:\Users\User\Documents\Ajax\Msit147Site\wwwroot
-
+            using(var fileStream = new FileStream(rootPath, FileMode.Create))
+            {
+                Photo.CopyTo(fileStream);
+            }
             return Content(rootPath);
         }
 
