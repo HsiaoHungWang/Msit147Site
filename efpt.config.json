@@ -7,7 +7,7 @@
    "IncludeConnectionString": true,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "Models",
+   "OutputPath": "NorthwindModels",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "Msit147Site",
    "Schemas": null,
@@ -16,15 +16,19 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[Address]",
+         "Name": "[dbo].[Categories]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Members]",
+         "Name": "[dbo].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Shippers]",
          "ObjectType": 0
       }
    ],
-   "UiHint": "desktop-rae7e6c.Demo.dbo",
+   "UiHint": "desktop-rae7e6c.Northwind.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,

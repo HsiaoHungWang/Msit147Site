@@ -60,6 +60,16 @@ namespace Msit147Site.Controllers
             return Content(rootPath);
         }
 
+       public IActionResult GetImageByte(int id=0)
+        {
+            Members? _member = _context.Members.Find(id);
+            byte[]? img = _member.FileData;
+            return File(img, "image/jpeg");
+
+
+
+        }
+        
         public IActionResult Cities() {
             var cities = _context.Address.Select(c => c.City).Distinct();
             return Json(cities);
