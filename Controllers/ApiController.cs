@@ -27,6 +27,8 @@ namespace Msit147Site.Controllers
             {
                 userName = "Guest";
             }
+            System.Threading.Thread.Sleep(10000);
+
             return Content($"Hello {userName}!!");
         }
 
