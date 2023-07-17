@@ -21,6 +21,7 @@
         //step1 建立Ajax物件
         const xhr = new XMLHttpRequest();
 
+        //ajax 開始
         xhr.addEventListener('loadstart',()=>{
             divAlert.innerHTML += "Ajax開始<br>";
             theImg.style.display = "inline";
@@ -28,6 +29,7 @@
             btnStart.innerHTML = "執行中....";
         })
 
+        //ajax 結束
         xhr.addEventListener('loadend',()=>{
             divAlert.innerHTML += "Ajax結束<br>";
             theImg.style.display = "none";
@@ -41,10 +43,12 @@
             divAlert.innerHTML += data + "<br>";
         })
 
+        //timeout 時間到了，Server端還沒有回傳結果
         xhr.addEventListener('timeout',()=>{
             divAlert.innerHTML += "伺服器忙碌中...<br>";
         })
 
+        //透過abort()停止了Ajax程式的執行
         xhr.addEventListener('abort',()=>{
             divAlert.innerHTML += "您停止了程式的執行...<br>";
         })
