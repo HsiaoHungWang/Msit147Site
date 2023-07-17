@@ -4,6 +4,7 @@
 }
 
 <h1>AjaxEvent</h1>
+<input type="text" id="userName" />
 <button id="ajaxStart" class="btn btn-primary">Ajax Start</button>
 <button id="ajaxStop" class="btn btn-warning">Ajax Stop</button>
 
@@ -14,8 +15,19 @@
         const btnStart = document.querySelector('#ajaxStart');
         const btnStop = document.querySelector('#ajaxStop');
         const divAlert  = document.querySelector('#div1');
+        const txtName = document.querySelector('#userName');
         btnStart.addEventListener('click',()=>{
-            divAlert.innerHTML = "Ajax Start!!";
+            //step1 建立Ajax物件
+            const xhr = new XMLHttpRequest();
+            //step2 發出要求(request)
+            xhr.open('GET', `/api/ajaxevent?userName=${txtName.value}`);
+            xhr.send();
+            //step3 接收回應(response)的資料
+            xhr.addEventListener('load', () => {
+                const data = xhr.responseText;
+                divAlert.innerHTML = data;
+            })
+
         })
         btnStop.addEventListener('click',()=>{
             divAlert.innerHTML = "Ajax Stop!!";
