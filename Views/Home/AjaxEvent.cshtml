@@ -35,22 +35,31 @@
             btnStart.innerHTML = "Ajax Start";
         })
 
+        //step3 接收回應(response)的資料
+        xhr.addEventListener('load', () => {
+            const data = xhr.responseText;
+            divAlert.innerHTML += data + "<br>";
+        })
+
+        xhr.addEventListener('timeout',()=>{
+            divAlert.innerHTML += "伺服器忙碌中...<br>";
+        })
+
+        xhr.addEventListener('abort',()=>{
+            divAlert.innerHTML += "您停止了程式的執行...<br>";
+        })
+
         btnStart.addEventListener('click',()=>{           
             //step2 發出要求(request)
             xhr.open('GET', `/api/ajaxevent?userName=${txtName.value}`);
+            xhr.timeout = 5000;
             xhr.send();
-            //step3 接收回應(response)的資料
-            xhr.addEventListener('load', () => {
-                const data = xhr.responseText;
-                divAlert.innerHTML += data + "<br>";
-            })
-
+            
         })
 
-
-
         btnStop.addEventListener('click',()=>{
-            divAlert.innerHTML = "Ajax Stop!!";
+           // divAlert.innerHTML = "Ajax Stop!!";
+           xhr.abort();
         })
     </script>
 
