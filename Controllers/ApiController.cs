@@ -6,10 +6,11 @@ namespace Msit147Site.Controllers
     public class ApiController : Controller
     {
         private readonly DemoContext _context;
-
-        public ApiController(DemoContext context)
+        private readonly IWebHostEnvironment _host;
+        public ApiController(DemoContext context, IWebHostEnvironment host)
         {
             _context = context;
+            _host = host;
         }
         public IActionResult Index()
         {
@@ -33,8 +34,11 @@ namespace Msit147Site.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(Members member) {
-            return Content($"Hello {member.Name}");
+        public IActionResult Register(Members member, IFormFile Photo) {
+            // string photoInfo = $"{Photo.FileName} - {Photo.Length} - {Photo.ContentType}";
+            string rootPath = Path.Combine(_host.WebRootPath, "uploads", Photo.FileName); //C:\Users\User\Documents\Ajax\Msit147Site\wwwroot
+
+            return Content(rootPath);
         }
 
         public IActionResult Cities() {
