@@ -36,11 +36,27 @@ namespace Msit147Site.Controllers
         [HttpPost]
         public IActionResult Register(Members member, IFormFile Photo) {
             // string photoInfo = $"{Photo.FileName} - {Photo.Length} - {Photo.ContentType}";
+            //檔案上傳
             string rootPath = Path.Combine(_host.WebRootPath, "uploads", Photo.FileName); //C:\Users\User\Documents\Ajax\Msit147Site\wwwroot
             using(var fileStream = new FileStream(rootPath, FileMode.Create))
             {
                 Photo.CopyTo(fileStream);
             }
+
+            //寫進資料庫
+            member.FileName = Photo.FileName;
+            byte[]? photoByte = null;
+            using (var memoryStream = new MemoryStream())
+            {
+                Photo.CopyTo(memoryStream);
+                photoByte = memoryStream.ToArray();
+            }
+                member.FileData = photoByte;
+
+            _context.Members.Add(member);
+            _context.SaveChanges();
+
+
             return Content(rootPath);
         }
 
