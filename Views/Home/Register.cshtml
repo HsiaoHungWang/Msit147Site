@@ -9,7 +9,7 @@
         <a href="~/home/index" id="linkPage">Index Page</a>
     </div>
     <div class="col-6">
-        <form method="Post" action="~/api/register">
+        <form method="Post" action="~/api/register" name="registerForm">
             <div class="mb-3">
                 <label for="InputUserName" class="form-label">姓名</label>
                 <input type="text" class="form-control" id="InputUserName" name="Name" />
@@ -40,12 +40,16 @@
         const page = document.querySelector('#linkPage');
         const divAlert = document.querySelector('#div1');
         btnSubmit.addEventListener('click', event=>{           
-            event.preventDefault(); 
+            event.preventDefault();
+
+            const formData = new FormData(document.registerForm);//<form name="registerForm"
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/api/register');
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            xhr.send('Name=Mary&Age=30&Email=Mary@company.com');
+           //xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+           // xhr.send('Name=Mary&Age=30&Email=Mary@company.com');
+           // xhr.send(`Name=${document.querySelector('#InputUserName').value}&Age=${document.querySelector('#InputAge')}&Email=Mary@company.com`);
+           xhr.send(formData);
 
             xhr.addEventListener('load',()=>{
                 const data = xhr.responseText;

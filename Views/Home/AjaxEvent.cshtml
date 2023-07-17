@@ -55,7 +55,7 @@
 
         btnStart.addEventListener('click',()=>{           
             //step2 發出要求(request)
-            xhr.open('GET', `/api/ajaxevent?userName=${txtName.value}`);
+            xhr.open('GET', `/api/ajaxevent?userName=${txtName.value}&age=30&email=xxx@company.com`);
             xhr.timeout = 5000;
             xhr.send();
             
