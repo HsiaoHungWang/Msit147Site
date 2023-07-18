@@ -35,8 +35,9 @@
             })
            // $('#divAlert').text("JSON")
         })
+        $('#divAlert').load('@Url.Content("~/home/Partail2")')
         $('#buttonLoad').click(function () {
-            $('#divAlert').text("LOAD")
+            $('#divAlert').load('@Url.Content("~/home/Partail1")')
         })
         $('#buttonAjax').click(function () {
             $('#divAlert').text("AJAX")
