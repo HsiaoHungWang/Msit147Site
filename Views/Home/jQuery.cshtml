@@ -52,7 +52,10 @@
            
         })
         $('#buttonCors').click(function () {
-            $('#divAlert').text("CORs")
+            $.get('https://localhost:7209/api/Shippers', function (data) {
+                console.log(data);
+            })
+            //$('#divAlert').text("CORs")
         })
 
     </script>
