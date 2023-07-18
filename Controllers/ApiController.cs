@@ -12,9 +12,14 @@ namespace Msit147Site.Controllers
             _context = context;
             _host = host;
         }
-        public IActionResult Index()
+        public IActionResult Index(string name, int age = 20)
         {
-             return Content("Hello Ajax!!");
+            if (string.IsNullOrEmpty(name))
+            {
+                name = "Guest";
+            }
+
+            return Content($"Hello {name}, You are {age} years old.");
             // return Content("<h2>Hello World!!</h2>","text/html");
             //return Content("<h2>Ajax 您好!!</h2>", "text/html", System.Text.Encoding.UTF8);
 
