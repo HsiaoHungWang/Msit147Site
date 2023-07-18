@@ -35,12 +35,21 @@
             })
            // $('#divAlert').text("JSON")
         })
-        $('#divAlert').load('@Url.Content("~/home/Partail2")')
+        //$('#divAlert').load('@Url.Content("~/home/Partail2")')
         $('#buttonLoad').click(function () {
             $('#divAlert').load('@Url.Content("~/home/Partail1")')
         })
         $('#buttonAjax').click(function () {
-            $('#divAlert').text("AJAX")
+            $.ajax({
+                url: '@Url.Content("/api/districts")', // '@Url.Content("~/api/index/")',
+                type:'GET', //POST
+                data: { "city": "宜蘭縣" }, //{ "name": "Fiona1", "age": 31 }
+                dataType: 'json'
+            }).done(data=>{
+                console.log(data);
+                //$('#divAlert').text(data);
+            })
+           
         })
         $('#buttonCors').click(function () {
             $('#divAlert').text("CORs")
