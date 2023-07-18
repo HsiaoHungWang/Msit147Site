@@ -47,6 +47,16 @@ namespace Msit147Site.Controllers
             return View();
         }
 
+        public IActionResult History()
+        {
+            return View();
+        }
+
+        public IActionResult jQuery()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
