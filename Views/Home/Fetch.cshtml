@@ -4,7 +4,7 @@
 }
 
 <h1>Fetch</h1>
-
+<img src="~/images/Skateboarding.gif" />
 @section Scripts{
     <script>
      // console.log(fetch("/api/Index"));
@@ -26,7 +26,9 @@
         //    });
 
         async function CallAjax(){
-            const response = await fetch("/api/Index");
+            //@Url.Action()
+
+            const response = await fetch('@Url.Content("~/api/Index")');
             const data = await response.text();
             console.log(data);
         }
