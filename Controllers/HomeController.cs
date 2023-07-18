@@ -67,6 +67,15 @@ namespace Msit147Site.Controllers
             return PartialView();
         }
 
+        public IActionResult ShipperCors() {
+            return View();
+        }
+
+        public IActionResult DataTables()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
